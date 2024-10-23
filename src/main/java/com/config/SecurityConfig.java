@@ -15,7 +15,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    // Configure in-memory user authentication
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withUsername("user")
