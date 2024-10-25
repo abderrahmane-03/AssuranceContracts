@@ -19,5 +19,9 @@ public class ViewsController {
     public ModelAndView insuranceHome() {
        return new ModelAndView("insurance");
     }
+    @GetMapping("/insuranceList")
+    public ModelAndView insuranceList() {
+        return new ModelAndView("insurance");
+    }
 }
 
