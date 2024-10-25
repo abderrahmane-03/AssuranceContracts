@@ -11,7 +11,6 @@
         <class>com.entity.CarInsurance</class>
         <class>com.entity.HealthInsurance</class>
         <class>com.entity.HomeInsurance</class>
-        <class>com.entity.Insurance</class>
         <class>com.entity.Subscription</class>
 
 

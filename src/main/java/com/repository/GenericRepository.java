@@ -19,11 +19,12 @@ public class GenericRepository<T, ID> {
         entityManager.merge(entity);
     }
 
+    // Find entity by ID
     public Optional<T> findById(Class<T> clazz, ID id) {
         return Optional.ofNullable(entityManager.find(clazz, id));
     }
 
-     public void delete(T entity) {
+    public void delete(T entity) {
         if (entityManager.contains(entity)) {
             entityManager.remove(entity);
         } else {
@@ -31,3 +32,4 @@ public class GenericRepository<T, ID> {
         }
     }
 }
+

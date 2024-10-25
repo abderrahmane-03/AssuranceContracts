@@ -12,10 +12,20 @@ public class Devis {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToOne
-    private Insurance insurance;
+    @OneToOne(mappedBy = "devis")
+    @JoinColumn(name="healthInsurance_id")
+    private HealthInsurance healthInsurance;
 
     @OneToOne(mappedBy = "devis")
+    @JoinColumn(name="carInsurance_id")
+    private CarInsurance carInsurance;
+
+    @OneToOne(mappedBy = "devis")
+    @JoinColumn(name="homeInsurance_id")
+    private HomeInsurance homeInsurance;
+
+    @OneToOne(mappedBy = "devis")
+    @JoinColumn(name="subscription_id")
     private Subscription subscription;
 
 
@@ -49,12 +59,28 @@ public class Devis {
         this.status = status;
     }
 
-    public Insurance getInsurance() {
-        return insurance;
+    public CarInsurance getCarInsurance() {
+        return carInsurance;
     }
 
-    public void setInsurance(Insurance insurance) {
-        this.insurance = insurance;
+    public void setCarInsurance(CarInsurance carInsurance) {
+        this.carInsurance = carInsurance;
+    }
+
+    public HealthInsurance getHealthInsurance() {
+        return healthInsurance;
+    }
+
+    public void setHealthInsurance(HealthInsurance healthInsurance) {
+        this.healthInsurance = healthInsurance;
+    }
+
+    public HomeInsurance getHomeInsurance() {
+        return homeInsurance;
+    }
+
+    public void setHomeInsurance(HomeInsurance homeInsurance) {
+        this.homeInsurance = homeInsurance;
     }
 
     public Subscription getSubscription() {

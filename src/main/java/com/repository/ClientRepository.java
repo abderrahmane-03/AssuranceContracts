@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public class ClientRepository {
+public class ClientRepository extends GenericRepository<Client,Long> {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -25,9 +25,5 @@ public class ClientRepository {
         } catch (NoResultException e) {
             return Optional.empty();
         }
-    }
-
-    public void save(Client client) {
-        entityManager.persist(client);
     }
 }
