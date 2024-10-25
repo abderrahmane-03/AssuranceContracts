@@ -38,7 +38,6 @@ public class RegistrationController {
         client.setPassword(passwordEncoder.encode(password));
         clientService.save(client);
 
-        // Redirect to login with success message (optional)
         return new ModelAndView("redirect:/login");
     }
 
@@ -46,17 +45,11 @@ public class RegistrationController {
     public ModelAndView login(@RequestParam String email,
                               @RequestParam String password) {
 
-        // Find the client by email
         UserDetails optionalClient = clientService.loadUserByUsername(email);
 
-        // If the client is found
-
-        // Verify the password
         if (passwordEncoder.matches(password, optionalClient.getPassword())) {
-            // Redirect to the main page (e.g., insurance dashboard) on successful login
             return new ModelAndView("redirect:/");
         } else {
-            // If the password is incorrect, show an error message
             return new ModelAndView("login", "error", "Invalid password");
         }
     }

@@ -11,30 +11,19 @@ public class GenericRepository<T, ID> {
     @PersistenceContext
     protected EntityManager entityManager;
 
-    // Save entity
     public void save(T entity) {
         entityManager.persist(entity);
     }
 
-    // Update entity
     public void update(T entity) {
         entityManager.merge(entity);
     }
 
-<<<<<<< Updated upstream
     // Find entity by ID
     public Optional<T> findById(Class<T> clazz, ID id) {
         return Optional.ofNullable(entityManager.find(clazz, id));
     }
 
-    // Delete entity
-=======
-    public <T> Optional<T> findById(Class<T> clazz, ID id) {
-        return Optional.ofNullable(entityManager.find(clazz, id));
-    }
-
-
->>>>>>> Stashed changes
     public void delete(T entity) {
         if (entityManager.contains(entity)) {
             entityManager.remove(entity);
@@ -43,3 +32,4 @@ public class GenericRepository<T, ID> {
         }
     }
 }
+
